@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1/">
+    <title>SNovel Project</title>
+    <link rel="stylesheet" href="snovel.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="w3.css" type="text/css" media="all" />
+  </head>
+  <body>
+    
+    <div class="w3-container main-container">
+      <div id="searchCon w3-container" style="position:sticky;top:0;z-index:10">
+        <input type="search" name="s" id="s" style="margin-top:7px" class="w3-input w3-round" placeholder="Search" onkeyup="myFunction()" />
+        <ul class="w3-ul w3-round sResult" id="sResult">
+        </ul>
+      </div>
+      <ul class="list-items" id="list_items"></ul>
+    </div>
+    
+    <script src="jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="snovel.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      function myFunction() {
+    // Declare variables
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById('s');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("sResult");
+    li = ul.getElementsByTagName('li');
+    
+    if(input.value != ""){
+      ul.style.display = "block";
+    }else{
+      ul.style.display = "none";
+    }
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+      } else {
+        li[i].style.display = "none";
+      }
+    }
+  }
+    </script>
+  </body>
+</html>

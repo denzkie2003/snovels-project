@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>SNovel Project</title>
+    <link rel="stylesheet" href="snovel.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="w3.css" type="text/css" media="all" />
+  </head>
+  <body>
+    
+    <div class="w3-container w3-padding-24 main-container">
+      <h2 class="w3-text-white">List of Novels</h2>
+      <ul class="w3-ul w3-text-orange" id="list_index"></ul>
+    </div>
+    
+    <script src="jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="snovel.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(document).ready(function(){
+      var mylist = $("#list_index");
+      var listitems = mylist.children('li').get();
+      listitems.sort(function(a, b) {
+      return $(a).text().toUpperCase().localeCompare($(b).text().toUpperCase());
+      });
+      $.each(listitems, function(idx, itm) { mylist.append(itm); });
+    });
+    </script>
+  </body>
+</html>
