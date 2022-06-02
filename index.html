@@ -45,6 +45,15 @@
       }
     }
   }
+  $(document).ready(function(){
+    
+    if(!navigator.onLine){
+      alert("Failed to connect. Please check your internet connection!");
+      
+      $(".main-container").css("display","none");
+     }
+    
+  });
     </script>
   </body>
 </html>
